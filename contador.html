@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Contador de Tempo</title>
+</head>
+<body>
+
+    <div id="contador"></div>
+
+    <script>
+        function atualizarContador() {
+            // Data de referência: 29 de dezembro de 2024 às 00:00
+            const dataReferencia = new Date("2024-12-29T00:45:00").getTime();
+            
+            // Data e hora atuais
+            const agora = new Date().getTime();
+            
+            // Calcula a diferença em milissegundos
+            const diferenca = agora - dataReferencia;
+
+            // Converte a diferença para dias, horas, minutos e segundos
+            const segundos = Math.floor((diferenca / 1000) % 60);
+            const minutos = Math.floor((diferenca / (1000 * 60)) % 60);
+            const horas = Math.floor((diferenca / (1000 * 60 * 60)) % 24);
+            const dias = Math.floor(diferenca / (1000 * 60 * 60 * 24));
+
+            // Atualiza o contador na tela
+            document.getElementById("contador").innerHTML = 
+                `${dias} dias, ${horas} horas, ${minutos} minutos, ${segundos} segundos`;
+        }
+
+        // Atualiza o contador a cada segundo
+        setInterval(atualizarContador, 1000);
+
+        // Chama a função imediatamente para evitar espera
+        atualizarContador();
+    </script>
+
+</body>
+</html>

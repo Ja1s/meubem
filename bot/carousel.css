@@ -1,0 +1,102 @@
+main {
+    width: 100%;
+}
+
+.sodade h1 {
+    color: var(--bs-yellow);
+    font-weight: bolder;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    text-align: center;
+}
+
+.sodade h4 {
+    color: var(--bs-yellow);
+    font-weight: bolder;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    text-align: center;
+}
+
+
+
+.light-mode h1 {
+    color: #6610f2;
+}
+
+.light-mode h4 {
+    color: #6610f2;
+    font-weight: bolder;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    text-align: center;
+    color: #6610f2;
+    width: 90%;
+}
+
+.carousel-container {
+    position: relative;
+    width: 80%;
+    overflow: hidden;
+    margin: auto;
+}
+
+.carousel-track {
+    display: flex;
+    width: 200%;
+    animation: slide 500s linear infinite; 
+}
+
+.carousel-track img {
+    align-items: center;
+    width: auto;
+    height: 100%;
+    margin: 0 10px;
+    flex-shrink: 0;
+}
+
+@media (max-width: 576px) {
+    .carousel-track img {
+        max-width: 300px;
+        max-height: 750px;
+    }
+
+    .sodade h1, .sodade h4{
+        width: auto;
+        font-size: medium;
+    }
+
+    .light-mode .sodade h1, .light-mode .sodade h4{
+        width: auto;
+        font-size: medium;
+    }
+}
+
+@keyframes slide {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+.fade-overlay {
+    position: absolute;
+    top: 0;
+    width: 15%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 10;
+}
