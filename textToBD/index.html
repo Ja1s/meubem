@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Envio de Mensagem</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div id="segredo">
+        <h1><b>Pra Dizer O Que Quiser</b></h1>
+        <h4>Totalmente anônimo, minha gatinha.</h4>
+    </div>
+    <div class="container">
+        <h2>Enviar Mensagem</h2>
+
+        <form method="post" action="/textToBD/api/insere.php">
+            <input type="hidden" name="data" id="data">
+            <input type="hidden" name="hora" id="hora">
+            
+            <label for="texto">Mensagem:</label>
+            <textarea name="texto" id="texto" placeholder="Digite sua mensagem..." required></textarea>
+            <br><br>
+
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+
+    <script>
+        const now = new Date();
+
+        const dataField = document.getElementById('data');
+        const formattedDate = now.toISOString().slice(0, 10);
+        dataField.value = formattedDate;
+
+        const horaField = document.getElementById('hora');
+        const hours = String(now.getHours()).padStart(2, '0');
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+        const formattedHour = `${hours}:${minutes}`;
+        horaField.value = formattedHour;
+    </script>
+
+</body>
+</html>
